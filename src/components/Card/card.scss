@@ -26,8 +26,12 @@
     color: $color-primary;
     margin-bottom: 10px;
   }
-   .progress {
+  .progress {
     margin-bottom: 20px;
     height: 8px;
-   }
+  }
+
+  @media screen and (max-width: 821px) {
+    max-width: 100%;
+  }
 }

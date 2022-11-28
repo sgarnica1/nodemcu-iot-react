@@ -5,6 +5,7 @@ import { HomeBody } from "./components/HomeBody";
 import { useFetchMultiple } from "../../hooks/useFetchMultiple";
 import { useTempHum } from "../../hooks/useTempHum";
 import { ErrorBanner } from "../../components/ErrorBanner/ErrorBanner";
+import { CardLoadingSkeleton } from "../../components/CardLoadingSkeleton/CardLoadingSkeleton";
 import "./home.scss";
 
 const Home = () => {
@@ -30,9 +31,11 @@ const Home = () => {
     <div className="Home">
       {/* LOADING SKELETONS */}
       {isLoading && (
-        <>
-          <p> Loading... </p>
-        </>
+        <section className="Home__header">
+          {new Array(6).fill(0).map((_, index) => (
+            <CardLoadingSkeleton key={index} />
+          ))}
+        </section>
       )}
 
       {error && !isLoading && <ErrorBanner error={error} />}
