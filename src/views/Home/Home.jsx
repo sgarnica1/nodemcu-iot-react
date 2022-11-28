@@ -4,6 +4,7 @@ import { HomeHeader } from "./components/HomeHeader";
 import { HomeBody } from "./components/HomeBody";
 import { useFetchMultiple } from "../../hooks/useFetchMultiple";
 import { useTempHum } from "../../hooks/useTempHum";
+import { ErrorBanner } from "../../components/ErrorBanner/ErrorBanner";
 import "./home.scss";
 
 const Home = () => {
@@ -15,7 +16,7 @@ const Home = () => {
 
   // FORMAT HOUR
   const { formatDate } = useTempHum();
-  if (!isLoading) {
+  if (!isLoading && !error) {
     data[0] = formatDate(data[0]);
   }
 
@@ -24,8 +25,6 @@ const Home = () => {
       setRefetch(!refetch);
     }, 10000);
   }, [refetch]);
-
-  const user = "Sergio";
 
   return (
     <div className="Home">
@@ -36,7 +35,9 @@ const Home = () => {
         </>
       )}
 
-      {!isLoading && (
+      {error && !isLoading && <ErrorBanner error={error} />}
+
+      {!error && !isLoading && (
         <>
           {/* HEAD*/}
           <HomeHeader data={data} refetch={refetch} />

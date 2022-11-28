@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import { CurrentCard } from "../../../components/CurrentCard/CurrentCard";
 import { AverageCard } from "../../../components/AverageCard/AverageCard";
 import { AlertCard } from "../../../components/AlertCard/AlertCard";
