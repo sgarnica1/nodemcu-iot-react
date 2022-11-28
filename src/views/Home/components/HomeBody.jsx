@@ -3,12 +3,20 @@ import { LineChart } from "../../../components/LineChart/LineChart";
 import { useTempHum } from "../../../hooks/useTempHum";
 import { data } from "../../../config/data";
 
-const DashboardBody = ({ data: entries }) => {
+const HomeBody = ({ data: entries }) => {
   const { getRawDataFromEntries } = useTempHum();
 
   const { temperatureData, humidityData, dates } = getRawDataFromEntries(
     entries[0]
   );
+
+  // MAX TEMPERATURE && HUMIDITY
+  const maxTemp = Math.max(...temperatureData);
+  const maxHum = Math.max(...humidityData);
+
+  // MIN TEMPERATURE && HUMIDITY
+  const minTemp = Math.min(...temperatureData);
+  const minHum = Math.min(...humidityData);
 
   // DATA SETS
   const tempDatasets = [
@@ -30,27 +38,39 @@ const DashboardBody = ({ data: entries }) => {
     },
   ];
 
+  const tempScales = {
+    max: maxTemp + 5,
+    min: minTemp - 5,
+  };
+
+  const humScales = {
+    max: maxHum + 5,
+    min: minHum - 5,
+  };
+
   return (
-    <section className="Dashboard__body">
+    <section className="Home__body">
       <DataTable
         headers={["Hora", "Temperatura", "Humedad"]}
         data={entries[0].slice(0, 1440)}
-        params={data.params}
+        params={entries[1][0]}
       />
-      <LineChart
-        title="Temperatura"
-        datasets={tempDatasets}
-        labels={dates}
-        scales={{ max: 100, min: 0 }}
-      />
-      <LineChart
-        title="Humedad"
-        datasets={humDatasets}
-        labels={dates}
-        scales={{ max: 100, min: 0 }}
-      />
+      <div className="Home__body-charts">
+        <LineChart
+          title="Temperatura - Historial Diario"
+          datasets={tempDatasets}
+          labels={dates}
+          scales={tempScales}
+        />
+        <LineChart
+          title="Humedad - Historial Diario"
+          datasets={humDatasets}
+          labels={dates}
+          scales={humScales}
+        />
+      </div>
     </section>
   );
 };
 
-export { DashboardBody };
+export { HomeBody };

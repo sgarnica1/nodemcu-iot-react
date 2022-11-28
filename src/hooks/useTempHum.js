@@ -1,6 +1,9 @@
 import { useEffect, useState } from "react";
+import { useGeneral } from "../context/GeneralContext";
 
 const useTempHum = () => {
+  const { setAlert, setAlertData } = useGeneral();
+
   const formatDate = (data) => {
     data = data.map((item) => {
       let date = new Date(item.createdAt).toString();
@@ -25,16 +28,34 @@ const useTempHum = () => {
 
       // GET DATES
       if (len > 1440 && i % 60 === 0) {
-        dates.push(entries[i].date.split(" ")[4]);
+        dates.push(entries[i].date.split("GMT")[0]);
       } else {
-        dates.push(entries[i].date.split(" ")[4]);
+        dates.push(entries[i].date.split("GMT")[0]);
       }
     }
 
     return { temperatureData, humidityData, dates };
   };
 
-  return { formatDate, getRawDataFromEntries };
+  const getAlerts = (
+    temperatureData,
+    humidityData,
+    maxTempParam,
+    maxHumParam
+  ) => {
+    if (
+      temperatureData[temperatureData.length - 1] > maxTempParam ||
+      humidityData[humidityData.length - 1] > maxHumParam
+    ) {
+      setAlert(true);
+      setAlertData({
+        temperature: temperatureData[temperatureData.length - 1],
+        humidity: humidityData[humidityData.length - 1],
+      });
+    }
+  };
+
+  return { formatDate, getRawDataFromEntries, getAlerts };
 };
 
 export { useTempHum };

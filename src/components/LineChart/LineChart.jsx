@@ -27,11 +27,15 @@ const LineChart = ({ title, datasets, labels, scales }) => {
     responsive: true,
     plugins: {
       legend: {
-        position: "top",
+        display: false,
       },
       title: {
-        display: true,
         text: title,
+        display: true,
+        position: "top",
+        fullSize: true,
+        align: "center",
+        padding: 10,
       },
     },
     scales: {
@@ -42,9 +46,11 @@ const LineChart = ({ title, datasets, labels, scales }) => {
           stepSize: 0.5,
         },
       },
+      x: {
+        display: false,
+      },
     },
   };
-  
 
   const data = {
     labels: labels,

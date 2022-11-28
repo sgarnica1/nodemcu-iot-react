@@ -1,8 +1,7 @@
 import React from "react";
+import "./datatable.scss";
 
 const DataTable = ({ headers, data, params }) => {
-  
-
   return (
     <article className="DataTable">
       <header className="DataTable__header">
@@ -13,16 +12,28 @@ const DataTable = ({ headers, data, params }) => {
             </div>
           );
         })}
+      </header>
+      <div className="DataTable__body">
         {data.map((entry, index) => {
           return (
-            <div className="DataTable__row" key={index}>
-              <div className="DataTable__row-value">{entry.date.split(" ")[4]}</div>
-              <div className={`DataTable__row-value ${entry.temperature > params.maxTemp ? "alert" : ""}`}>{entry.temperature}</div>
-              <div className={`DataTable__row-value ${entry.temperature > params.maxHum ? "alert" : ""}`}>{entry.humidity}</div>
+            <div
+              className={`DataTable__row ${
+                entry.temperature > params.maxTemp ||
+                entry.humidity > params.maxHum
+                  ? "alarm"
+                  : ""
+              }`}
+              key={index}
+            >
+              <div className="DataTable__row-value">
+                {entry.date.split("GMT")[0]}
+              </div>
+              <div className="DataTable__row-value">{entry.temperature}° C</div>
+              <div className="DataTable__row-value">{entry.humidity}%</div>
             </div>
           );
         })}
-      </header>
+      </div>
     </article>
   );
 };

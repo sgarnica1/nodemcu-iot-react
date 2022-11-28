@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 
 function useFetchMultiple(endpoints, callback) {
   const [data, setData] = useState([]);
+  const [refetch, setRefetch] = useState(true);
   const [isLoading, setLoading] = useState(true);
   const [error, setError] = useState(false);
 
@@ -30,10 +31,10 @@ function useFetchMultiple(endpoints, callback) {
         })
         .catch((err) => setError(err));
     }
-    fetchData();
-  }, [callback, isLoading]);
+    if (refetch === true) fetchData();
+  }, [callback, isLoading, refetch]);
 
-  return { isLoading, data, error };
+  return { isLoading, data, error, refetch, setRefetch };
 }
 
 export { useFetchMultiple };

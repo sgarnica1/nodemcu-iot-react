@@ -1,0 +1,14 @@
+@import "../../scss/variables";
+
+.Header {
+  height: 50px;
+  background: $color-light;
+  position: sticky;
+  top: 0;
+  box-shadow: $box-shadow;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  padding-right: 20px;
+  z-index: 999;
+}

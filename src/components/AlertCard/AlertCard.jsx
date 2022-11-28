@@ -1,31 +1,31 @@
 import React from "react";
+import { Card } from "../Card/Card";
+import "./alertcard.scss";
 
 const AlertCard = ({ value, tempValue, tempSymbol, humValue, humSymbol }) => {
   return (
-    <div className="AlertCard">
-      <h2>Alertas</h2>
-      <span>{value}</span>
+    <Card classN="AlertCard" title={"Alertas"} value={value} symbol={""}>
       <div className="AlertCard__maxvalues">
         {tempValue && (
-          <div className="AlertCard__maxminvalue max">
-            <span>Temperatura Max.</span>
-            <p>
+          <div className="AlertCard__maxmin-container temp">
+            <span className="AlertCard__maxmin-title">Temperatura Max.</span>
+            <span className="AlertCard__maxmin-value">
               {tempValue}
               {tempSymbol}
-            </p>
+            </span>
           </div>
         )}
         {humValue && (
-          <div className="AlertCard__maxminvalue min">
-            <span>Humedad Max.</span>
-            <p>
+          <div className="AlertCard__maxmin-container hum">
+            <span className="AlertCard__maxmin-title">Humedad Max.</span>
+            <span className="AlertCard__maxmin-value">
               {humValue}
               {humSymbol}
-            </p>
+            </span>
           </div>
         )}
       </div>
-    </div>
+    </Card>
   );
 };
 
