@@ -7,12 +7,16 @@ Frontend web application for `TH Servers`, a webapp to measure and control tempe
 To install this project, first clone the repository
 
 ``` bash
-### HTTP
+# HTTP
 git clone https://github.com/sgarnica1/nodemcu-iot-react.git
 
-### SSH
+# SSH
 git@github.com:sgarnica1/nodemcu-iot-react.git
 
+```
+For installation now run the following command
+``` bash
+npm install
 ```
 
 Runs the app in the development mode.\
