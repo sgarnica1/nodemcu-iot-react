@@ -1,12 +1,23 @@
-# Getting Started with Create React App
+# TH Servers
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Frontend web application for `TH Servers`, a webapp to measure and control temperature and humidity in a data center
 
-## Available Scripts
+## Installation
 
-In the project directory, you can run:
+To install this project, first clone the repository
 
-### `npm start`
+``` bash
+# HTTP
+git clone https://github.com/sgarnica1/nodemcu-iot-react.git
+
+# SSH
+git@github.com:sgarnica1/nodemcu-iot-react.git
+
+```
+For installation now run the following command
+``` bash
+npm install
+```
 
 Runs the app in the development mode.\
 Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
