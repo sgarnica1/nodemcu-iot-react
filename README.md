@@ -9,21 +9,56 @@ To install this project, first clone the repository
 ``` bash
 # HTTP
 git clone https://github.com/sgarnica1/nodemcu-iot-react.git
-
+```
+or
+``` bash
 # SSH
-git@github.com:sgarnica1/nodemcu-iot-react.git
+git clone git@github.com:sgarnica1/nodemcu-iot-react.git
 
 ```
-For installation now run the following command
+#### For installation, move to the directory
+``` bash
+cd nodemcu-iot-react
+```
+and run the following command
 ``` bash
 npm install
 ```
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+After installing, now run the app in the development mode
+``` bash
+npm start
+```
+And open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 
 The page will reload when you make changes.\
 You may also see any lint errors in the console.
+
+## About the application
+TH-Servers is a web application for tracing, reading and alerting temperatures and humidities in any data center.
+
+This application is part of a fullstack application build with a backend server with Node.js, Express and MongoDB Atlas; and an IoT (Internet of Things) project, which is build with a NodeMCU and a DHT22 Sensor. 
+
+### Backend
+- Built with Node.js, Express.js and MongoDb Atlas
+- Access the GitHub Repository [here](https://github.com/sgarnica1/nodemcu-iot)
+- Deployed under the `/api` endpoint in Heroku [(https://thservers.herokuapp.com/)](https://thservers.herokuapp.com) and Render [(https://thservers.onrender.com)](https://thservers.onrender.com/)
+
+
+### Hardware
+#### General settings:
+- NodeMCU Version: `Robotistan, NodeMCU 1.0 V2, ESP8266MOD`
+- Arduino Version: `1.8.19`
+- NodeMCU Driver: `1.0`
+- ESP32 Driver: `ESP8266 2.7.4 `
+
+#### Components
+- Buzzer
+- DHT22 Module Sensor 
+- NodeMCU Robotistan, NodeMCU 1.0 V2, ESP8266MOD
+- LCD 16x2 I2C
+
+## More Commands
 
 ### `npm test`
 
@@ -52,30 +87,6 @@ You don't have to ever use `eject`. The curated feature set is suitable for smal
 
 ## Learn More
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+This app was created with Create React App [(documentation)](https://facebook.github.io/create-react-app/docs/getting-started).
 
 To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
